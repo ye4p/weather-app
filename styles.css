@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+    background-color: #93C5FD; 
+    height: 100vh;
+}
+.container {
+    top: 200px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%)
+}
+.main_window {
+    display: flex; 
+    padding: 1rem; 
+    flex-direction: column; 
+    align-items: center; 
+    border-width: 0; 
+    background-color: #60A5FA; 
+    pointer-events: auto; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+    opacity: 1; 
+    height: 800px;
+    width: 600px;
+    border-radius: 25px;
+}
+h1 {
+    margin-top: 20px;
+    font-size: 3rem;
+    line-height: 1; 
+    font-weight: 700; 
+    margin-bottom: 2.5rem;
+}
+.logo {
+    margin:  0 0 2.5rem 0; 
+    width: 40%;
+    transition: all 0.3s ease;
+}
+.logo.hide {
+    display: none;
+    transition: all 0.3s ease;
+}
+.input_field {
+    display: flex; 
+    margin-bottom: 1.25rem; 
+    justify-content: center; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+    height: 2.5rem;
+    border-radius: 10px;
+}
+.input_field input {
+    padding: 0.5rem; 
+    margin-bottom: 2rem; 
+    background-color: #EFF6FF; 
+    width: 300px;
+    border: none;
+    height: 2.5rem;
+    border-radius: 10px 0 0 10px; 
+}
+.input_field button {
+    border:none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px; 
+    height: 2.5rem; 
+    width: 100px;
+    background-color: #FEE2E2; 
+    transition: all 0.3s ease;
+}
+.input_field button:hover {
+    background-color:rgb(190, 72, 72);
+}
+.bottom_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    top: 750px;
+}
+.favorites_btn {
+    background-color: #10B981; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+.back_btn {
+    background-color: rgb(233, 67, 67) ;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+    width: 100px;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    
+    bottom: 0px;
+    transition: all 0.3s ease;
+}
+.back_btn.hide {
+    display: none;
+    transition: all 0.3s ease;
+}
+.weather {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.temp {
+ font-size: 70px;
+ font-weight: 600;
+}
+.temp_apparent {
+    font-size: 20px;
+}
+.weather.hide {
+    display: none;
+}
+.weather .hourly .title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+.hourly {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* .box_hourly {
+    width: 600px;
+    background:#126fda;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    padding: 5px 10px 5px 10px;
+    overflow-x: hidden;
+} */
+ .box_hourly {
+    background:#126fda;
+    padding-bottom: 5px;
+ }
+ .max_min {
+    font-size: 16px;
+    color: white;
+    text-shadow:0px 0px 6px rgba(0,0,0,0.58);
+ }
+.hourly_box {
+    width: 600px;
+    /* max-width: 600px;
+    min-width: 600px; */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: scroll;
+    transition: all 0.3s ease;
+    padding: 5px;
+    padding: 5px 10px 5px 10px;
+    background:#126fda;
+}
+.hourly_box::-webkit-scrollbar {
+  width: 10px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+/* Track (background) */
+.hourly_box::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Handle (thumb) */
+.hourly_box::-webkit-scrollbar-thumb {
+  background: #a3ca36;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* Handle on hover */
+.hourly_box::-webkit-scrollbar-thumb:hover {
+  background: #d8db31;
+}
+.hourly_item {
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#10B981;
+    width: 120px;
+    height: 100px;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.hourly_item .info {
+    font-size: 20px;
+}
+.other {
+    margin-top: 20px;
+    font-size: 20px;
+}
+.weather_png {
+    width: 100px
+}

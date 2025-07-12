@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather app</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body >
+    <div class="container">
+        <div class="main_window">
+            <h1>Your weather app!</h1>
+            <img src="icons\weather_icon.png" alt="Weather png" class="logo">
+            
+            <div class="input_field">
+                <input class='input' placeholder="Enter city" type="text">
+                <button class="submit">Search</button>
+            </div>
+        <div class="weather hide">
+            <img src="http://openweathermap.org/img/wn/02n@2x.png" alt="weather" class="weather_png">
+            <div class="temp"><span>33.6</span>°C</div>
+            <div class="temp_apparent">Feels: <span>29.6</span> °C</div>
+            <div class="max_min">Min: <span class="min">34.5</span> °C, Max: <span class="max">28.1</span> °C</div>
+            <div class="hourly">
+                <p class="title">Hourly Forecast:</p>
+                <div class="box_hourly">
+                <div class="hourly_box">
+                    
+                </div>
+                </div>
+
+            </div>
+            <div class="other">
+                <p>Rain sediment today: <span>14.7</span>mm</p>
+            </div>
+        </div>
+        </div>
+        <div class="bottom_buttons">
+                <button class="favorites_btn">Favorites</button>
+                <button class="back_btn hide">Back</button>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script src="WMOcodes.js"></script>
+</body>
+</html>
