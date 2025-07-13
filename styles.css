@@ -11,10 +11,13 @@ body {
     height: 100vh;
 }
 .container {
-    top: 200px;
+    top: 100px;
     left: 50%;
     position: absolute;
-    transform: translateX(-50%)
+    transform: translateX(-50%);
+    background-color: #60A5FA; 
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1); 
+    border-radius: 25px;
 }
 .main_window {
     display: flex; 
@@ -22,13 +25,19 @@ body {
     flex-direction: column; 
     align-items: center; 
     border-width: 0; 
-    background-color: #60A5FA; 
+    /* background-color: #60A5FA;  */
     pointer-events: auto; 
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
+    /* box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);   */
     opacity: 1; 
     height: 800px;
     width: 600px;
     border-radius: 25px;
+}
+.main_window.hide {
+    display: none;
+}
+.main_window h1.hide {
+    display: none;
 }
 h1 {
     margin-top: 20px;
@@ -48,15 +57,17 @@ h1 {
 }
 .input_field {
     display: flex; 
-    margin-bottom: 1.25rem; 
     justify-content: center; 
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); 
     height: 2.5rem;
     border-radius: 10px;
 }
+.input_field.hide {
+    display: none;
+}
 .input_field input {
     padding: 0.5rem; 
-    margin-bottom: 2rem; 
+    margin-bottom: 0rem; 
     background-color: #EFF6FF; 
     width: 300px;
     border: none;
@@ -83,6 +94,20 @@ h1 {
     transform: translateX(-50%);
     position: absolute;
     top: 750px;
+}
+.fav_cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    gap: 20px;
+}
+.fav_cont i {
+    font-size: 30px;
+    transition: all 0.3s ease;
+}
+.fav_cont i:hover {
+    transform: scale(1.2);
 }
 .favorites_btn {
     background-color: #10B981; 
