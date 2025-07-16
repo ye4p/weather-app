@@ -1,10 +1,3 @@
-localStorage.setItem('city1', 'tampa')
-localStorage.setItem('city2', 'kazan')
-localStorage.setItem('city3', 'tarpon springs')
-
-
-
-
 const input=document.querySelector('.input')
 const input_button = document.querySelector('.submit')
 const logo = document.querySelector('.logo')
@@ -16,9 +9,9 @@ const input_form = document.querySelector('.input_field')
 const main_window = document.querySelector('.main_window')
 const title_app = document.querySelector('.main_window h1')
 
-// console.dir(main_window)
+console.dir(main_window)
 
-const API_KEY=''
+const API_KEY='9fd581c7a840d2e8cf18ca1d0e8c4fce'
 let current_city=''
 
 input_button.addEventListener('click', () => {
@@ -59,7 +52,7 @@ async function fetch_data(city) {
     }
     
 
-  //  console.log(data_json)
+    console.log(data_json)
     insert_data(data_json)
     weather_box.classList.remove('hide')
     current_city=city.toLowerCase();
@@ -129,10 +122,6 @@ function insert_data(data, city) {
     rain.innerText=data.current.rain
 }
 back_btn.addEventListener('click', ()=> {
-    go_back()
-})
-
-function go_back() {
     logo.classList.remove('hide')
     back_btn.classList.add('hide')
     weather_box.classList.add('hide')
@@ -155,15 +144,13 @@ function go_back() {
     modal_3n.classList.add('hide')
     const main_fav=document.querySelector('.favwtitle')
     main_fav.classList.add('hide')
-    return
-}
+})
 
 star.addEventListener('click', () => {
     favorites(current_city)
-    display_mem()
 })
 function favorites(city) {
-   // console.log(city)
+    console.log(city)
     memory_cities=[]
     let logger=[]
     for( var i = 1; i<4; i++) {
@@ -173,23 +160,23 @@ function favorites(city) {
         localStorage.removeItem(`city${memory_check(memory_cities, city)}`);
         star.classList.remove('fa-star')
         star.classList.add('fa-star-o')
-      //  console.log('deleted')
+        console.log('deleted')
         logger=[]
     
                 for( var i = 1; i<4; i++) {
                     logger.push(localStorage.getItem(`city${i}`))
                 }
-               // console.log(logger)
+                console.log(logger)
     } else if (memory_check(memory_cities, city) == 0) {
         for (var i=0; i<3; i++) {
             if (memory_cities[i]==null) {
-             //   console.log('null found')
+                console.log('null found')
                 localStorage.setItem(`city${i+1}`, city)
                 logger=[]
                 for( var i = 1; i<4; i++) {
                     logger.push(localStorage.getItem(`city${i}`))
                 }
-            //    console.log(logger)
+                console.log(logger)
                 star.classList.remove('fa-star-o')
                 star.classList.add('fa-star')
                 return
@@ -198,37 +185,23 @@ function favorites(city) {
         localStorage.setItem('city3', city)
         star.classList.remove('fa-star-o')
         star.classList.add('fa-star')
-      //  console.log('placed at the end, no null found')
+        console.log('placed at the end, no null found')
     }
 }
-
-function display_mem() {
-    let logger=[]
-    
-    for( var i = 1; i<4; i++) {
-        logger.push(localStorage.getItem(`city${i}`))
-    }
-     console.log('display MEMORY: ',logger)
-}
-
 function memory_check(arr, city) {
     for (var i = 0; i<3; i++) {
         if (arr[i]==city) {
-          //  console.log('memory_check result: ', i+1)
+            console.log('memory_check result: ', i+1)
             return i+1
         }
     } 
-  //  console.log('memory_check result: ', 0)
+    console.log('memory_check result: ', 0)
     return 0
 }
+localStorage.setItem('city1', 'kazan')
 
 
 favorites_btn.addEventListener('click', () => {
-    fav_btn_clicked()
-})
-
-
-function fav_btn_clicked() {
     logo.classList.add('hide')
     weather_box.classList.add('hide')
     star.classList.remove('fa-star-o')
@@ -261,7 +234,6 @@ function fav_btn_clicked() {
     const three = document.querySelector('.modal3')
     let null_arr=[]
     let no_nulls=[]
-   // console.log(memory_cities)
    
     for(var i=0; i<3; i++) {
         if (memory_cities[i]==null) {
@@ -272,49 +244,26 @@ function fav_btn_clicked() {
     }
     // console.log('no nulls: ', no_nulls)
     if (null_arr.length==3) {
-        hide_all_fav()
         display_empty(two)
     } else if (null_arr.length==2) {
-        hide_all_fav()
         display_data(one, no_nulls[0])
         display_empty(two)
     } else if (null_arr.length==1) {
-        hide_all_fav()
         display_data(one, no_nulls[0])
         display_data(two, no_nulls[1])
         display_empty(three)
     } else if (null_arr.length==0) {
-        hide_all_fav()
         display_data(one, no_nulls[0])
         display_data(two, no_nulls[1])
         display_data(three, no_nulls[2])
     } else {
         console.log('something is wrong')
     }
-}
-function hide_all_fav() {
-    const modal_1=document.querySelector('.modal1 .weather_fav')
-    const modal_2=document.querySelector('.modal2 .weather_fav')
-    const modal_3=document.querySelector('.modal3 .weather_fav')
-    const modal_1n=document.querySelector('.modal1 .fav_empty')
-    const modal_2n=document.querySelector('.modal2 .fav_empty')
-    const modal_3n=document.querySelector('.modal3 .fav_empty')
-    modal_1.classList.add('hide')
-    modal_2.classList.add('hide')
-    modal_3.classList.add('hide')
-    modal_1n.classList.add('hide')
-    modal_2n.classList.add('hide')
-    modal_3n.classList.add('hide')
-}
-
-
+})
 
 function display_empty(modal) {
     const empty_child=modal.lastElementChild
     empty_child.classList.remove('hide')
-    empty_child.addEventListener('click', () => {
-        go_back()
-    })
 }
 
 async function display_data(modal, city_name) {
@@ -339,11 +288,36 @@ async function display_data(modal, city_name) {
     let hourly_fav = children_arr[11].childNodes[3].childNodes[1]
 
     let other_fav=children_arr[13].childNodes[1].firstElementChild
-  //  console.dir(weather_window.childNodes)
+    console.dir(weather_window.childNodes)
 
    let trash_bucket=children_arr[15]
 
-
+   trash_bucket.addEventListener('click', () => {
+        memory_cities=[]
+        for( var i = 1; i<4; i++) {
+            memory_cities.push(localStorage.getItem(`city${i}`))
+        }
+        let null_arr=[]
+        let no_nulls=[]
+   
+        for(var i=0; i<3; i++) {
+            if (memory_cities[i]==null) {
+                null_arr.push(i)
+            } else {
+                no_nulls.push(memory_cities[i])
+            }
+        }
+        parent=trash_bucket.closest('.weather_fav')
+        parent.classList.add('hide')
+        console.dir(parent)
+        
+        for(var i=0; i<3; i++) {
+            if (memory_cities[i]==city_name) {
+                localStorage.removeItem(`city${i+1}`)
+                break
+            }
+        }
+   })
 
     let data = await favorite_fetch(city_name)
 
@@ -393,44 +367,10 @@ async function display_data(modal, city_name) {
         `
     }
     other_fav.innerText=data.current.rain
-    trash_bucket.addEventListener('click', () => {
-        console.log('trash bucket clicked')
-        console.log('closest modal:')
-        console.dir(trash_bucket.closest('.win'))
-        memory_cities=[]
-        for( var i = 1; i<4; i++) {
-            memory_cities.push(localStorage.getItem(`city${i}`))
-        }
-        let null_arr=[]
-        let no_nulls=[]
-   
-        for(var i=0; i<3; i++) {
-            if (memory_cities[i]==null) {
-                null_arr.push(i)
-            } else {
-                no_nulls.push(memory_cities[i])
-            }
-        }
-       // parent=trash_bucket.closest('.weather_fav')
-       // parent.classList.add('hide')
-        console.log('before deleting: ', memory_cities)
-        
-        for(var i=0; i<3; i++) {
-            console.log(memory_cities[i]==city_name)
-            if (memory_cities[i]==city_name) {
-                localStorage.removeItem(`city${i+1}`)
-                break
-            }
-        }
-        memory_cities=[]
-        for( var i = 1; i<4; i++) {
-            memory_cities.push(localStorage.getItem(`city${i}`))
-        }
-        console.log('after deleting: ', memory_cities)
 
-        return fav_btn_clicked()
-   })
-    
+
+
+
 }
 
 async function favorite_fetch(city_name) {
@@ -445,7 +385,7 @@ async function favorite_fetch(city_name) {
         https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=temperature_2m_max,temperature_2m_min,weather_code,daylight_duration,rain_sum&hourly=temperature_2m,is_day,apparent_temperature,relative_humidity_2m,rain,weather_code&current=temperature_2m,apparent_temperature,rain&timezone=auto
         `)
     const data_json = await data_lat_lon.json()
-    // console.log(data_json)
+    console.log(data_json)
         return data_json
     } else {
         console.log("You didn't enter city's name right")
