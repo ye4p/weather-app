@@ -1,9 +1,3 @@
-localStorage.setItem('city1', 'tampa')
-localStorage.setItem('city2', 'kazan')
-localStorage.setItem('city3', 'tarpon springs')
-
-
-
 
 const input=document.querySelector('.input')
 const input_button = document.querySelector('.submit')
@@ -393,43 +387,43 @@ async function display_data(modal, city_name) {
         `
     }
     other_fav.innerText=data.current.rain
-    trash_bucket.addEventListener('click', () => {
-        console.log('trash bucket clicked')
-        console.log('closest modal:')
-        console.dir(trash_bucket.closest('.win'))
-        memory_cities=[]
-        for( var i = 1; i<4; i++) {
-            memory_cities.push(localStorage.getItem(`city${i}`))
-        }
-        let null_arr=[]
-        let no_nulls=[]
+//     trash_bucket.addEventListener('click', () => {
+//         console.log('trash bucket clicked')
+//         console.log('closest modal:')
+//         console.dir(trash_bucket.closest('.win'))
+//         memory_cities=[]
+//         for( var i = 1; i<4; i++) {
+//             memory_cities.push(localStorage.getItem(`city${i}`))
+//         }
+//         let null_arr=[]
+//         let no_nulls=[]
    
-        for(var i=0; i<3; i++) {
-            if (memory_cities[i]==null) {
-                null_arr.push(i)
-            } else {
-                no_nulls.push(memory_cities[i])
-            }
-        }
-       // parent=trash_bucket.closest('.weather_fav')
-       // parent.classList.add('hide')
-        console.log('before deleting: ', memory_cities)
+//         for(var i=0; i<3; i++) {
+//             if (memory_cities[i]==null) {
+//                 null_arr.push(i)
+//             } else {
+//                 no_nulls.push(memory_cities[i])
+//             }
+//         }
+//        // parent=trash_bucket.closest('.weather_fav')
+//        // parent.classList.add('hide')
+//         console.log('before deleting: ', memory_cities)
         
-        for(var i=0; i<3; i++) {
-            console.log(memory_cities[i]==city_name)
-            if (memory_cities[i]==city_name) {
-                localStorage.removeItem(`city${i+1}`)
-                break
-            }
-        }
-        memory_cities=[]
-        for( var i = 1; i<4; i++) {
-            memory_cities.push(localStorage.getItem(`city${i}`))
-        }
-        console.log('after deleting: ', memory_cities)
+//         for(var i=0; i<3; i++) {
+//             console.log(memory_cities[i]==city_name)
+//             if (memory_cities[i]==city_name) {
+//                 localStorage.removeItem(`city${i+1}`)
+//                 break
+//             }
+//         }
+//         memory_cities=[]
+//         for( var i = 1; i<4; i++) {
+//             memory_cities.push(localStorage.getItem(`city${i}`))
+//         }
+//         console.log('after deleting: ', memory_cities)
 
-        return fav_btn_clicked()
-   })
+//         return fav_btn_clicked()
+//    })
     
 }
 
@@ -451,3 +445,131 @@ async function favorite_fetch(city_name) {
         console.log("You didn't enter city's name right")
     }
 }
+
+let trash_bucket1=document.querySelector('.modal1 .weather_fav .fa-trash')
+
+trash_bucket1.addEventListener('click', () => {
+        console.log('trash bucket clicked')
+        console.log('closest modal:')
+        console.dir(trash_bucket1.closest('.win'))
+        memory_cities=[]
+        for( var i = 1; i<4; i++) {
+            memory_cities.push(localStorage.getItem(`city${i}`))
+        }
+        let null_arr=[]
+        let no_nulls=[]
+   
+        for(var i=0; i<3; i++) {
+            if (memory_cities[i]==null) {
+                null_arr.push(i)
+            } else {
+                no_nulls.push(memory_cities[i])
+            }
+        }
+       // parent=trash_bucket.closest('.weather_fav')
+       // parent.classList.add('hide')
+        console.log('before deleting: ', memory_cities)
+        let parent_b=trash_bucket1.closest('.weather_fav')
+        console.dir(parent_b)
+        let son=parent_b.childNodes[1].textContent.toLowerCase()
+        console.dir(son)
+        for(var i=0; i<3; i++) {
+            console.log(memory_cities[i], son)
+            if (memory_cities[i]==son) {
+                localStorage.removeItem(`city${i+1}`)
+                break
+            }
+        }
+        memory_cities=[]
+        for( var i = 1; i<4; i++) {
+            memory_cities.push(localStorage.getItem(`city${i}`))
+        }
+        console.log('after deleting: ', memory_cities)
+
+        return fav_btn_clicked()
+   })
+   
+let trash_bucket2=document.querySelector('.modal2 .weather_fav .fa-trash')
+
+trash_bucket2.addEventListener('click', () => {
+        console.log('trash bucket clicked')
+        console.log('closest modal:')
+        console.dir(trash_bucket1.closest('.win'))
+        memory_cities=[]
+        for( var i = 1; i<4; i++) {
+            memory_cities.push(localStorage.getItem(`city${i}`))
+        }
+        let null_arr=[]
+        let no_nulls=[]
+   
+        for(var i=0; i<3; i++) {
+            if (memory_cities[i]==null) {
+                null_arr.push(i)
+            } else {
+                no_nulls.push(memory_cities[i])
+            }
+        }
+       // parent=trash_bucket.closest('.weather_fav')
+       // parent.classList.add('hide')
+        console.log('before deleting: ', memory_cities)
+        let parent_b=trash_bucket1.closest('.weather_fav')
+        console.dir(parent_b)
+        let son=parent_b.childNodes[1].textContent.toLowerCase()
+        for(var i=0; i<3; i++) {
+            console.log(memory_cities[i], son)
+            if (memory_cities[i]==son) {
+                localStorage.removeItem(`city${i+1}`)
+                break
+            }
+        }
+        memory_cities=[]
+        for( var i = 1; i<4; i++) {
+            memory_cities.push(localStorage.getItem(`city${i}`))
+        }
+        console.log('after deleting: ', memory_cities)
+
+        return fav_btn_clicked()
+   })
+   
+   let trash_bucket3=document.querySelector('.modal3 .weather_fav .fa-trash')
+
+trash_bucket3.addEventListener('click', () => {
+        console.log('trash bucket clicked')
+        console.log('closest modal:')
+        console.dir(trash_bucket1.closest('.win'))
+        memory_cities=[]
+        for( var i = 1; i<4; i++) {
+            memory_cities.push(localStorage.getItem(`city${i}`))
+        }
+        let null_arr=[]
+        let no_nulls=[]
+   
+        for(var i=0; i<3; i++) {
+            if (memory_cities[i]==null) {
+                null_arr.push(i)
+            } else {
+                no_nulls.push(memory_cities[i])
+            }
+        }
+       // parent=trash_bucket.closest('.weather_fav')
+       // parent.classList.add('hide')
+        console.log('before deleting: ', memory_cities)
+        let parent_b=trash_bucket1.closest('.weather_fav')
+        console.dir(parent_b)
+        let son=parent_b.childNodes[1].textContent.toLowerCase()
+        for(var i=0; i<3; i++) {
+            console.log(memory_cities[i], son)
+            if (memory_cities[i]==son) {
+                localStorage.removeItem(`city${i+1}`)
+                break
+            }
+        }
+        memory_cities=[]
+        for( var i = 1; i<4; i++) {
+            memory_cities.push(localStorage.getItem(`city${i}`))
+        }
+        console.log('after deleting: ', memory_cities)
+
+        return fav_btn_clicked()
+   })
+   
