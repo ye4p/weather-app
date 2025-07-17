@@ -1,4 +1,4 @@
-This is my attempt to create weather app mostly myself. You can enter city name, then first API will request conversion of city name into latitude and longitude, that are then used to get weather data for these specific coordinates.
+This is my attempt to create weather app mostly myself. You can enter city name, then first API will request conversion of city name into latitude and longitude, that are then used to get weather data for these specific coordinates. It also has memory system with favorites, that stores 3 favorites cities chosen by user in localStorage of the browser and then recalled and changed every time it is needed.
 
 In order for this code to work you need to enter your API key from openweathermap.org (It's free, don't recommend it tho)
 
